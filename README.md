@@ -35,6 +35,7 @@ July 17-18, 2017
 6. Generating text with trained models
 
 
+
 ## References & Readings
 
 [Object Dreams](http://objectdreams.tumblr.com/) by Jamie Brew (with code [on Github](https://github.com/jbrew))
