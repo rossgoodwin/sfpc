@@ -24,15 +24,19 @@ for url in entry_urls:
 	url = 'https://newyork.craigslist.org' + url
 	res = requests.get(url)
 	soup = BeautifulSoup(res.text)
-	tgt_section = soup.select('#postingbody')[0]
-	tgt_text = tgt_section.get_text()
+	try:
+		tgt_section = soup.select('#postingbody')[0]
+	except IndexError:
+		pass
+	else:
+		tgt_text = tgt_section.get_text()
 
-	# print tgt_text
-	# break
+		# print tgt_text
+		# break
 
-	final_text = tgt_text.replace('QR Code Link to This Post', '').strip()
+		final_text = tgt_text.replace('QR Code Link to This Post', '').strip()
 
-	with open('data/%i.txt' % i, 'w') as outfile:
-		outfile.write(final_text.encode("utf8"))
+		with open('data/%i.txt' % i, 'w') as outfile:
+			outfile.write(final_text.encode("utf8"))
 
 	i += 1
